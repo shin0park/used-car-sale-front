@@ -119,8 +119,6 @@ export default {
     }
   },
 
-
-
   mounted() {
     this.getUserTable();
   }

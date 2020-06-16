@@ -25,31 +25,16 @@
         selected: [],
         headers: [
           {
-            text: 'Manufacturer_name',
+            text: 'Manufacturer Name',
             align: 'start',
             sortable: false,
             value: 'ManufacturerName',
           },
-          { text: 'Model_name', value: 'ModelName' },
+          { text: 'Model Name', value: 'ModelName' },
           { text: 'Transmission', value: 'Transmission' },
-          { text: 'Pserial', value: 'pserial' },
-         // { text: 'Protein (g)', value: 'protein' },
-        //  { text: 'Iron (%)', value: 'iron' },
+          { text: 'Serial Number', value: 'SerialNo' },
         ],
         purchases: [
-            {
-        "ManufacturerName": "BMW",
-        "ModelName": "X5",
-        "Transmission": "automatic",
-        "SerialNo": "b001"
-    },
-    {
-        "ManufacturerName": "BMW",
-        "ModelName": "320",
-        "Transmission": "automatic",
-        "SerialNo": "b002"
-    }
-
         ],
       }
     },
@@ -57,7 +42,7 @@
      methods:{
             getpurchase: function(){
                 this.$http.get("/purchase").then((response)=>{
-                    this.reviews = response.data
+                    this.purchases = response.data
                     //print
                     console.log(response)
                 },(error)=>{
@@ -66,7 +51,7 @@
             }
         },
 
-        //method 자동 
+        //method 자동
         created(){
             this.getpurchase()
         },
