@@ -14,9 +14,8 @@
       mandatory v-model="navigationTarget" light borderless background-color="transparent"
       class="ml-2"
     >
-      <v-btn value="simulator" color="transparent">시간표 만들기</v-btn>
-      <v-btn value="myTimeTable" color="transparent">내 시간표</v-btn>
-      <v-btn value="classScore" color="transparent">강의 평가</v-btn>
+      <v-btn value="product" color="transparent">상품 목록</v-btn>
+      <v-btn value="purchase" color="transparent">구매 목록</v-btn>
       <v-btn value="myPage" color="transparent">마이페이지</v-btn>
       <v-btn v-show="false" value="hide" color="transparent"></v-btn>
 
@@ -63,7 +62,7 @@ export default {
         response = response.user;
 
         let payload = {
-          id: response.Snumber,
+          id: response.id,
           name: response.Name,
           phoneNumber: response.phoneNumber,
 
@@ -83,12 +82,10 @@ export default {
     navigationTarget: function(target) {
       if (target == "myPage") {
         this.$router.push("/user/modification");
-      } else if (target == "simulator") {
-        this.$router.push("/simulation");
-      } else if (target == "classScore") {
-        this.$router.push("/review/Main");
-      }else if (target == "myTimeTable"){
-        this.$router.push("/myTimeTable");
+      } else if (target == "product") {
+        this.$router.push("/product");
+      }else if (target == "purchase"){
+        this.$router.push("/purchase");
       }
 
     }

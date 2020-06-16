@@ -29,8 +29,4 @@
         margin-top: 1px;
     }
 
-    #total{
-
-    }
-
 </style>

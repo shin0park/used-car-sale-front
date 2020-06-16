@@ -11,7 +11,7 @@
       <v-col cols="12">
         <h1>페이지를 찾을 수 없습니다!</h1>
         <h2>404 Page Not Founded</h2>
-        <p>입력하신 URL은 아주 TT에서 제공하지 않는 페이지입니다.</p>
+        <p>입력하신 URL은 해당 사이트에서 제공하지 않는 페이지입니다.</p>
       </v-col>
     </v-row>
   </v-container>

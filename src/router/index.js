@@ -10,10 +10,9 @@ import home from '../views/home.vue';
 import loginMain from '../views/Login_Main.vue';
 import pageNotFound from '../views/pageNotFound.vue';
 import registermain from "../views/Register_Main.vue";
-import reviewmain from "../views/Review_Main"
-import simulation from "../views/Simulation.vue";
-import addreview from "../views/New_Review";
-import myTimeTableView from "../views/myTimeTable.vue";
+import productmain from "../views/Product_Main";
+import addProduct from "../views/New_Product";
+import purchase from "../views/Purchase_Main";
 import modificationmain from "../views/Modification_Main"
 
 Vue.use(VueRouter);
@@ -43,36 +42,27 @@ const routes = [
   },
 
   {
-    path: "/review/Main",
-    name: "reviewmain",
-    component: reviewmain,
+    path: "/product/add",
+    name: "addProduct",
+    component: addProduct,
     meta: {
       loginRequired: true
     }
   },
 
   {
-    path: "/review/add",
-    name: "addreview",
-    component: addreview,
+    path: "/product",
+    name: "product",
+    component: productmain,
     meta: {
       loginRequired: true
     }
   },
 
   {
-    path: "/simulation",
-    name: "simulation",
-    component: simulation,
-    meta: {
-      loginRequired: true
-    }
-  },
-
-  {
-    path: "/myTimeTable",
-    name: "myTimeTable",
-    component: myTimeTableView,
+    path: "/purchase",
+    name: "purchase",
+    component: purchase,
     meta: {
       loginRequired: true
     }
