@@ -40,10 +40,12 @@
                 ]
             }
         },
+        
         methods:{
             getreviews: function(){
                 this.$http.get("/review").then((response)=>{
                     this.reviews = response.data
+                    //print
                     console.log(response)
                 },(error)=>{
                     alert(error)
@@ -55,6 +57,7 @@
             }
         },
 
+        //method 자동 
         created(){
             this.getreviews()
         },
