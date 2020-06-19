@@ -14,6 +14,8 @@
       mandatory v-model="navigationTarget" light borderless background-color="transparent"
       class="ml-2"
     >
+      <div>{{ id }}</div>
+      <add_product v-if="user==='admin'"/>
       <v-btn value="product" color="transparent">상품 목록</v-btn>
       <v-btn value="purchase" color="transparent">구매 목록</v-btn>
       <v-btn value="myPage" color="transparent">마이페이지</v-btn>
@@ -33,22 +35,18 @@
 <script>
 import transmitter from "./plugins/fetchTransmitter.js";
 import miniLoginBox from "./components/miniLoginBox.vue";
+import add_product from "./components/registerNewProduct.vue";
 
 export default {
   name: 'App',
-
   components: {
-    miniLoginBox
+    miniLoginBox,
+    add_product
   },
-
   data: () => ({
-    navigationTarget: "hide"
+    navigationTarget: "hide",
+    user: 'admin'
   }),
-
-  created() {
-    this.getUserInfo();
-  },
-
   methods: {
     onTitleClicked() {
       this.$router.push("/");
@@ -60,14 +58,12 @@ export default {
       try {
         let response = await transmitter("/user/info", "GET", {}, "JSON");
         response = response.user;
-
         let payload = {
           id: response.id,
           name: response.Name,
           phoneNumber: response.phoneNumber,
 
         };
-
         this.$store.commit("setUserInfo", payload);
         console.log("유저 정보를 등록했습니다.");
       } catch (e) {
@@ -77,7 +73,6 @@ export default {
       }
     }
   },
-
   watch: {
     navigationTarget: function(target) {
       if (target == "myPage") {
@@ -87,10 +82,8 @@ export default {
       }else if (target == "purchase"){
         this.$router.push("/purchase");
       }
-
     }
   },
-
 };
 </script>
 
