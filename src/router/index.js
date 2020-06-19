@@ -15,6 +15,8 @@ import addProduct from "../views/New_Product";
 import purchase from "../views/Purchase_Main";
 import modificationmain from "../views/Modification_Main"
 
+//
+
 Vue.use(VueRouter);
 
 
