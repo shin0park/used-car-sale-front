@@ -15,7 +15,7 @@ import addProduct from "../views/New_Product";
 import purchase from "../views/Purchase_Main";
 import accident from "../views/Accident_Main";
 import modificationmain from "../views/Modification_Main"
-
+import accidentHistory from "../components/accidentHistory";
 //
 
 Vue.use(VueRouter);
@@ -75,6 +75,15 @@ const routes = [
     path: "/accident",
     name: "accident",
     component: accident,
+    meta: {
+      //loginRequired: true
+    }
+  },
+
+  {
+    path: "/accidentHistory",
+    name: "accidentHistory",
+    component: accidentHistory,
     meta: {
       //loginRequired: true
     }

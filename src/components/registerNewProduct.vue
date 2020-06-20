@@ -112,14 +112,14 @@
 
 <script>
   export default {
-      
+
     data: () => ({
         brand_list: ['KIA', 'Lexus', 'SsangYong', 'Daewoo', 'Ford', 'Volkswagen', 'Hyundai', 'BMW', 'Mercedes-Benz'],
         transmission_list: ['Mechanical', 'Automatic'],
         type_list: ['Sedan', 'SUV', 'Hatchback', 'Minivan', 'Minibus', 'Coupe', 'Pickup',],
         fuel_list: ['Gasoline', 'Diesel'],
         color_list: ['blue', 'black', 'silver', 'red', 'grey', 'brown', 'green', 'other', 'yellow', 'white', "etc"],
-            
+
         brand: '',
         model: '',
         transmission: '',
@@ -162,10 +162,10 @@
                 let output ={
                     'ManufacturerName' : this.brand,
                     'Transmission' : this.transmission,
-                    'EngineFuel' : this.fuel,                    
+                    'EngineFuel' : this.fuel,
                     'BodyType' : this.type,
-                    'Color' : this.color,                    
-                    'ModelName' : this.model,                    
+                    'Color' : this.color,
+                    'ModelName' : this.model,
                     'YearProduced' : this.year,
                     'EngineCapacity' : this.capacity,
                     'OdometerValue' : this.odometer,

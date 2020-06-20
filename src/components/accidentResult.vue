@@ -13,6 +13,15 @@
         <template v-slot:top>
             <v-switch v-model="singleSelect" label="Single select" class="pa-3"></v-switch>
         </template>
+
+        <template v-slot:footer >
+            <v-layout justify-center>
+                <v-card-actions>
+                    <v-btn small class="btn" color ="yellow" @click="onButtonClick()" >상세보기</v-btn>
+                </v-card-actions>
+            </v-layout>
+
+        </template>
     </v-data-table>
 </template>
 
@@ -46,6 +55,10 @@
         },
 
         methods:{
+            onButtonClick: function(){
+               console.log("click");
+                this.$router.push("/accidentHistory");
+            }
         },
 
         //method 자동
@@ -68,6 +81,10 @@
 
     #wrap_head{
         min-width: 600px;
+    }
+    #look_btn{
+        margin: 0 auto;
+        float: left;
     }
 
 </style>
