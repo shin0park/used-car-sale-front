@@ -114,10 +114,10 @@
   export default {
 
     data: () => ({
-        brand_list: ['KIA', 'Lexus', 'SsangYong', 'Daewoo', 'Ford', 'Volkswagen', 'Hyundai', 'BMW', 'Mercedes-Benz'],
-        transmission_list: ['Mechanical', 'Automatic'],
-        type_list: ['Sedan', 'SUV', 'Hatchback', 'Minivan', 'Minibus', 'Coupe', 'Pickup',],
-        fuel_list: ['Gasoline', 'Diesel'],
+        brand_list: ['Kia', 'Lexus', 'SsangYong', 'Daewoo', 'Ford', 'Volkswagen', 'Hyundai', 'BMW', 'Mercedes-Benz'],
+        transmission_list: ['mechanical', 'automatic'],
+        type_list: ['sedan', 'suv', 'tatchback', 'minivan', 'minibus', 'coupe', 'pickup',],
+        fuel_list: ['gasoline', 'diesel'],
         color_list: ['blue', 'black', 'silver', 'red', 'grey', 'brown', 'green', 'other', 'yellow', 'white', "etc"],
 
         brand: '',
@@ -161,17 +161,17 @@
             if(this.$refs.form.validate()){
                 let output ={
                     'ManufacturerName' : this.brand,
-                    'Transmission' : this.transmission,
-                    'EngineFuel' : this.fuel,
-                    'BodyType' : this.type,
-                    'Color' : this.color,
                     'ModelName' : this.model,
-                    'YearProduced' : this.year,
-                    'EngineCapacity' : this.capacity,
+                    'Transmission' : this.transmission,                    
+                    'Color' : this.color,
                     'OdometerValue' : this.odometer,
+                    'YearProduced' : this.year,
+                    'EngineFuel' : this.fuel,
+                    'EngineCapacity' : this.capacity,
+                    'BodyType' : this.type,
                     'PriceUsd' : this.price,
-                    'IsFixed' : this.fixed,
                     'IsExchangable' : this.exchange,
+                    'IsFixed' : this.fixed,
                 }
                 console.log(output)
                 this.$http.post("/product/add", output).then(response =>{
@@ -179,31 +179,6 @@
                 }), error => {console.log(error)};
             }
         },
-        // validate(){
-        //     this.$refs.form.validate()
-        //     let payload = {
-        //         ManufacturerName : this.brand,
-        //         Transmission : this.transmission,
-        //         EngineFuel : this.fuel,                    
-        //         BodyType : this.type,
-        //         Color : this.color,                    
-        //         ModelName : this.model,                    
-        //         YearProduced : this.year,
-        //         EngineCapacity : this.capacity,
-        //         OdometerValue : this.odometer,
-        //         PriceUsd : this.price,
-        //         IsFixed : this.fixed,
-        //         IsExchangable : this.exchange
-        //     };
-        //     this.$http.post('/product/add', payload)
-        //     .then(function (response) {
-        //         console.log(payload);
-        //         console.log(response);
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     });
-        // },
         reset () {
             this.$refs.form.reset()
         },

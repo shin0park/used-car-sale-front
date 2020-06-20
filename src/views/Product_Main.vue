@@ -19,14 +19,16 @@
               </td>   -->
               <!-- <td>{{row.item.brand}}</td>
               <td>{{row.item.model}}</td> -->
-              <td>{{row.item.Vin}}</td>
-              <td>{{row.item.PSerialNo}}</td>
+              <!-- <td>{{row.item.PSerial}}</td> -->
+              <td>{{row.item.ManufacturerName}}</td>
+              <td>{{row.item.Modelname}}</td>
+              <td>{{row.item.Transmission}}</td>
+              <td>{{row.item.BodyType}}</td>
               <td>{{row.item.Color}}</td>
               <td>{{row.item.OdometerValue}}</td>
-              <td>{{row.item.YearProduced}}</td>
               <td>{{row.item.EngineFuel}}</td>
               <td>{{row.item.EngineCapacity}}</td>
-              <td>{{row.item.BodyType}}</td>
+              <td>{{row.item.YearProduced}}</td>
               <td>{{row.item.PriceUsd}}</td>
               <td>{{row.item.IsExchangeable}}</td>
               <td>{{row.item.IsFixed}}</td>
@@ -90,19 +92,19 @@ export default {
   data(){
     return {
       headers: [
-        // { text: 'Brand', value: 'brand', align : 'center'},
-        // { text: 'Model', align : 'center', value: 'model'},
-        { text: 'Vin', align : 'center', value: 'Vin'},
-        { text: 'Pserial', align : 'center', value: 'PSerialNo'},
-        { text: 'Odometer', align : 'center', value: 'OdometerValue'},
+        // { text: 'Serial', value: 'brand', align : 'PSerial'},
+        { text: 'Brand', value: 'brand', align : 'ManufacturerName'},
+        { text: 'Model', align : 'center', value: 'ModelName'},
+        { text: 'Transmission', align : 'center', value: 'Transmission'},
+        { text: 'BodyType', align : 'center', value: 'BodyType'},
         { text: 'Color', align: 'center', value: 'Color'},
-        { text: 'Year', align: 'center', value: 'YearProduced'},
+        { text: 'Odometer', align : 'center', value: 'OdometerValue'},
         { text: 'Fuel', align: 'center', value: 'EngineFuel'},
-        { text: 'CC', align: 'center', value: 'EngineCapacity'},
-        { text: 'Type', align: 'center', value: 'BodyType'},
+        { text: 'CC', align: 'center', value: 'EngineCapacity'},        
+        { text: 'Year', align: 'center', value: 'YearProduced'},
         { text: 'Price', align: 'center', value: 'PriceUsd'},
         { text: 'IsExchangeable', align: 'center', value: 'IsExchangeable'},
-        { text: 'IsFixed', align: 'center', value: 'DurationListed'},
+        { text: 'IsFixed', align: 'center', value: 'IsFixed'},
         { text: 'Detail', align: 'center',sortable: false }
         ],
         cars: [
