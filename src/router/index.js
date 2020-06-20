@@ -13,6 +13,7 @@ import registermain from "../views/Register_Main.vue";
 import productmain from "../views/Product_Main";
 import addProduct from "../views/New_Product";
 import purchase from "../views/Purchase_Main";
+import accident from "../views/Accident_Main";
 import modificationmain from "../views/Modification_Main"
 
 //
@@ -48,7 +49,7 @@ const routes = [
     name: "addProduct",
     component: addProduct,
     meta: {
-      loginRequired: true
+      //loginRequired: true
     }
   },
 
@@ -67,6 +68,15 @@ const routes = [
     component: purchase,
     meta: {
       loginRequired: true
+    }
+  },
+
+  {
+    path: "/accident",
+    name: "accident",
+    component: accident,
+    meta: {
+      //loginRequired: true
     }
   },
 

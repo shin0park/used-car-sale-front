@@ -15,9 +15,10 @@
       class="ml-2"
     >
       <div>{{ id }}</div>
-      <add_product v-if="user==='admin'"/>
+      <v-btn v-if="this.$store.state.userInfo.id === 'admin'" value="productAdd" color="transparent">상품 등록</v-btn>
       <v-btn value="product" color="transparent">상품 목록</v-btn>
       <v-btn value="purchase" color="transparent">구매 목록</v-btn>
+      <v-btn value="accident" color="transparent">사고 이력</v-btn>
       <v-btn value="myPage" color="transparent">마이페이지</v-btn>
       <v-btn v-show="false" value="hide" color="transparent"></v-btn>
 
@@ -35,17 +36,14 @@
 <script>
 import transmitter from "./plugins/fetchTransmitter.js";
 import miniLoginBox from "./components/miniLoginBox.vue";
-import add_product from "./components/registerNewProduct.vue";
 
 export default {
   name: 'App',
   components: {
-    miniLoginBox,
-    add_product
+    miniLoginBox
   },
   data: () => ({
-    navigationTarget: "hide",
-    user: 'admin'
+    navigationTarget: "hide"
   }),
   methods: {
     onTitleClicked() {
@@ -77,10 +75,14 @@ export default {
     navigationTarget: function(target) {
       if (target == "myPage") {
         this.$router.push("/user/modification");
-      } else if (target == "product") {
+      }else if (target == "product") {
         this.$router.push("/product");
       }else if (target == "purchase"){
         this.$router.push("/purchase");
+      }else if (target == "accident"){
+        this.$router.push("/accident");
+      }else if (target == "productAdd") {
+        this.$router.push("/product/add");
       }
     }
   },

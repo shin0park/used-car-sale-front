@@ -84,7 +84,6 @@ export default {
 
       if(responseMsg == "loginError"){
         this.loginError = true;
-
         return;
       }
 
