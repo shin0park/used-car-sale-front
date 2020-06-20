@@ -47,7 +47,7 @@
       <v-btn class="btn" text @click="refresh" id="refresh">새로고침</v-btn>
     </v-flex>
     </v-layout>
-    <pre>{{ products }}</pre>
+    <!-- <pre>{{ products }}</pre> -->
   </v-container>
 </template>
 
