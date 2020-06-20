@@ -14,8 +14,8 @@
       mandatory v-model="navigationTarget" light borderless background-color="transparent"
       class="ml-2"
     >
-      <div>{{ id }}</div>
-      <v-btn v-if="this.$store.state.userInfo.id === 'admin'" value="productAdd" color="transparent">상품 등록</v-btn>
+      <!-- <v-btn v-if="this.$store.state.userInfo.id === 'admin'" value="productAdd" color="transparent">상품 등록</v-btn> -->
+      <addProduct v-if="this.$store.state.userInfo.id === 'admin'"/>
       <v-btn value="product" color="transparent">상품 목록</v-btn>
       <v-btn value="purchase" color="transparent">구매 목록</v-btn>
       <v-btn value="accident" color="transparent">사고 이력</v-btn>
@@ -36,11 +36,12 @@
 <script>
 import transmitter from "./plugins/fetchTransmitter.js";
 import miniLoginBox from "./components/miniLoginBox.vue";
-
+import addProduct from "./components/registerNewProduct.vue";
 export default {
   name: 'App',
   components: {
-    miniLoginBox
+    miniLoginBox,
+    addProduct
   },
   data: () => ({
     navigationTarget: "hide"

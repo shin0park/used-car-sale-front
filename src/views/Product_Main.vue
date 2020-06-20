@@ -90,7 +90,6 @@ export default {
   data(){
     return {
       headers: [
-        { text: 'Select'},
         // { text: 'Brand', value: 'brand', align : 'center'},
         // { text: 'Model', align : 'center', value: 'model'},
         { text: 'Vin', align : 'center', value: 'Vin'},

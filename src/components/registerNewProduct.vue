@@ -170,7 +170,7 @@
                     'EngineCapacity' : this.capacity,
                     'OdometerValue' : this.odometer,
                     'PriceUsd' : this.price,
-                    'IxFixed' : this.fixed,
+                    'IsFixed' : this.fixed,
                     'IsExchangable' : this.exchange,
                 }
                 console.log(output)
@@ -179,6 +179,31 @@
                 }), error => {console.log(error)};
             }
         },
+        // validate(){
+        //     this.$refs.form.validate()
+        //     let payload = {
+        //         ManufacturerName : this.brand,
+        //         Transmission : this.transmission,
+        //         EngineFuel : this.fuel,                    
+        //         BodyType : this.type,
+        //         Color : this.color,                    
+        //         ModelName : this.model,                    
+        //         YearProduced : this.year,
+        //         EngineCapacity : this.capacity,
+        //         OdometerValue : this.odometer,
+        //         PriceUsd : this.price,
+        //         IsFixed : this.fixed,
+        //         IsExchangable : this.exchange
+        //     };
+        //     this.$http.post('/product/add', payload)
+        //     .then(function (response) {
+        //         console.log(payload);
+        //         console.log(response);
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
+        // },
         reset () {
             this.$refs.form.reset()
         },
