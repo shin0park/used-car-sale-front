@@ -101,7 +101,9 @@
         <!-- </v-card-text> -->
         <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn :disable="!valid" x-large color="green darken-1" text @click="validate">Submit</v-btn>
+        <!-- <v-btn :disable="!valid" x-large color="green darken-1" text @click="validate">Submit</v-btn> -->
+        <v-alert v-model="alert" dismissible type="success">add product success!!</v-alert>
+        <v-btn x-large color="green darken-1" text @click="validate">Submit</v-btn>
         <v-btn x-large color="green darken-1" text @click="dialog=false">Cancel</v-btn>
         <!-- <pre>{{$data}}</pre> -->
         </v-card-actions>
@@ -116,10 +118,9 @@
     data: () => ({
         brand_list: ['Kia', 'Lexus', 'SsangYong', 'Daewoo', 'Ford', 'Volkswagen', 'Hyundai', 'BMW', 'Mercedes-Benz'],
         transmission_list: ['mechanical', 'automatic'],
-        type_list: ['sedan', 'suv', 'tatchback', 'minivan', 'minibus', 'coupe', 'pickup',],
+        type_list: ['sedan', 'suv', 'hatchback', 'minivan', 'minibus', 'coupe', 'pickup'],
         fuel_list: ['gasoline', 'diesel'],
-        color_list: ['blue', 'black', 'silver', 'red', 'grey', 'brown', 'green', 'other', 'yellow', 'white', "etc"],
-
+        color_list: ['blue', 'black', 'silver', 'red', 'grey', 'brown', 'green',  'yellow', 'white', 'other'],
         brand: '',
         model: '',
         transmission: '',
@@ -150,34 +151,41 @@
         },
         fixed: false,
         exchange: false,
+        alert: false,
         dialog: false,
-        valid: true,
+        show: true,
         lazy: false,
         errors: ''
         }),
 
         methods: {
-        validate () {
+        validate() {
             if(this.$refs.form.validate()){
                 let output ={
-                    'ManufacturerName' : this.brand,
-                    'ModelName' : this.model,
-                    'Transmission' : this.transmission,                    
-                    'Color' : this.color,
-                    'OdometerValue' : this.odometer,
-                    'YearProduced' : this.year,
-                    'EngineFuel' : this.fuel,
-                    'EngineCapacity' : this.capacity,
-                    'BodyType' : this.type,
-                    'PriceUsd' : this.price,
-                    'IsExchangable' : this.exchange,
-                    'IsFixed' : this.fixed,
-                }
-                console.log(output)
-                this.$http.post("/product/add", output).then(response =>{
-                    console.log(response.data);
-                }), error => {console.log(error)};
+                'ManufacturerName' : this.brand,
+                'ModelName' : this.model,
+                'Transmission' : this.transmission,                    
+                'Color' : this.color,
+                'OdometerValue' : this.odometer,
+                'YearProduced' : this.year,
+                'EngineFuel' : this.fuel,
+                'EngineCapacity' : this.capacity,
+                'BodyType' : this.type,
+                'PriceUsd' : this.price,
+                'IsExchangable' : this.exchange,
+                'IsFixed' : this.fixed,
             }
+            setTimeout(() => {
+                    (this.alert =false), (this.dialog = false);
+                }, 800); 
+            console.log(output)
+            this.$http.post("/product/add", output).then(response =>{
+                
+                console.log(response.data);
+            }), error => {console.log(error)};
+            // this.dialog=false
+            }
+            
         },
         reset () {
             this.$refs.form.reset()
