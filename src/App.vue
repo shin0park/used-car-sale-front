@@ -45,7 +45,7 @@ export default {
   },
   data: () => ({
     navigationTarget: "hide",
-    user: 'admin'
+    user: ''
   }),
   methods: {
     onTitleClicked() {

@@ -7,7 +7,7 @@
       <v-col class="text-center">
         <v-data-table
           :headers="headers"
-          :items="cars"
+          :items="products"
           :times-per-page="10"
           loader-height="5"
           class = "elevation-1"
@@ -31,7 +31,7 @@
               <td>{{row.item.IsExchangeable}}</td>
               <td>{{row.item.IsFixed}}</td>
               <td>
-              <v-btn small class="btn" color ="red" v-bind:style="More" @click="deleteProduct(row.item.Vin)">
+              <v-btn small class="btn" color ="red" v-bind:style="del" @click="deleteProduct(row.item.Vin)">
                 <v-icon>delete</v-icon></v-btn>
               <!-- <purchase/> -->
               </td>
@@ -43,11 +43,11 @@
     </v-row>
     <v-layout>
     <v-flex xl12 md12>
-      <v-btn text @click="deleteProduct()">삭제</v-btn>
+      <!-- <v-btn text @click="deleteProduct()">삭제</v-btn> -->
       <v-btn class="btn" text @click="refresh" id="refresh">새로고침</v-btn>
     </v-flex>
     </v-layout>
-    <!-- <pre>{{ products }}</pre> -->
+    <pre>{{ products }}</pre>
   </v-container>
 </template>
 
