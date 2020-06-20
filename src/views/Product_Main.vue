@@ -21,9 +21,9 @@
               <td>{{row.item.model}}</td> -->
               <!-- <td>{{row.item.PSerial}}</td> -->
               <td>{{row.item.ManufacturerName}}</td>
-              <td>{{row.item.Modelname}}</td>
+              <td>{{row.item.ModelName}}</td>
               <td>{{row.item.Transmission}}</td>
-              <td>{{row.item.BodyType}}</td>
+              <td>{{row.item.Bodytype}}</td>
               <td>{{row.item.Color}}</td>
               <td>{{row.item.OdometerValue}}</td>
               <td>{{row.item.EngineFuel}}</td>
@@ -103,8 +103,8 @@ export default {
         { text: 'CC', align: 'center', value: 'EngineCapacity'},        
         { text: 'Year', align: 'center', value: 'YearProduced'},
         { text: 'Price', align: 'center', value: 'PriceUsd'},
-        { text: 'IsExchangeable', align: 'center', value: 'IsExchangeable'},
-        { text: 'IsFixed', align: 'center', value: 'IsFixed'},
+        { text: 'Exchangeable', align: 'center', value: 'IsExchangeable'},
+        { text: 'Fixed', align: 'center', value: 'IsFixed'},
         { text: 'Detail', align: 'center',sortable: false }
         ],
         cars: [
