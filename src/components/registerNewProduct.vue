@@ -48,7 +48,7 @@
                         <v-checkbox
                             v-model="fixed"
                             :error-messages="errors"
-                            value="1"
+                            value="yes"
                             label="Is fixed"
                             type="checkbox"
                             required
@@ -88,7 +88,7 @@
                         <v-checkbox
                             v-model="exchange"
                             :error-messages="errors"
-                            value="1"
+                            value="yes"
                             label="Is exchangeable"
                             type="checkbox"
                             required
@@ -149,8 +149,8 @@
             required: v => !!v || 'Price is required',
             number: v => isNaN(v) === false || 'input only numbers',
         },
-        fixed: false,
-        exchange: false,
+        fixed: 'no',
+        exchange: 'no',
         alert: false,
         dialog: false,
         show: true,
