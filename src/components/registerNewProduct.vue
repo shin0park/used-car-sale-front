@@ -149,8 +149,8 @@
             required: v => !!v || 'Price is required',
             number: v => isNaN(v) === false || 'input only numbers',
         },
-        fixed: 'no',
-        exchange: 'no',
+        fixed: "no",
+        exchange: "no",
         alert: false,
         dialog: false,
         show: true,
@@ -164,7 +164,7 @@
                 let output ={
                 'ManufacturerName' : this.brand,
                 'ModelName' : this.model,
-                'Transmission' : this.transmission,                    
+                'Transmission' : this.transmission,
                 'Color' : this.color,
                 'OdometerValue' : this.odometer,
                 'YearProduced' : this.year,
@@ -177,15 +177,15 @@
             }
             setTimeout(() => {
                     (this.alert =false), (this.dialog = false);
-                }, 800); 
+                }, 800);
             console.log(output)
             this.$http.post("/product/add", output).then(response =>{
-                
+
                 console.log(response.data);
             }), error => {console.log(error)};
             // this.dialog=false
             }
-            
+
         },
         reset () {
             this.$refs.form.reset()

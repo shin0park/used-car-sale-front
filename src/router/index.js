@@ -58,7 +58,7 @@ const routes = [
     name: "product",
     component: productmain,
     meta: {
-      loginRequired: true
+      //loginRequired: true
     }
   },
 
@@ -67,7 +67,7 @@ const routes = [
     name: "purchase",
     component: purchase,
     meta: {
-      loginRequired: true
+      //loginRequired: true
     }
   },
 
