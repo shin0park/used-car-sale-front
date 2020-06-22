@@ -79,11 +79,10 @@
                                                         Price
                                                     </v-flex>
                                                 </v-layout>
-                                                <v-layout row class="text-center" v-for="(car,index) in carRcmd"
-                                                          :key="car">
-                                                    <v-flex>{{car.ManufacturerName}}</v-flex>
-                                                    <v-flex>{{car.ModelName}}</v-flex>
-                                                    <v-flex>{{productRcmd[index].PriceUsd}}</v-flex>
+                                                <v-layout row class = "text-center" v-for="car in carRcmd" :key ="car">
+                                                    <v-flex class = "text-center">{{car.ManufacturerName}}</v-flex>
+                                                    <v-flex class = "text-center">{{car.ModelName}}</v-flex>
+                                                    <v-flex class = "text-center">{{car.PriceUsd}}</v-flex>
                                                 </v-layout>
                                             </v-container>
                                         </v-card-text>
@@ -101,7 +100,7 @@
                                             <v-btn
                                                     color="success"
                                                     class="ma-2"
-                                                    @click="dialog2 = !dialog2, dialog = false, deleteProduct(row.item.Vin), pushPurchase(row.item.Vin)">
+                                                    @click="dialog2 = !dialog2, dialog = false, deleteProduct(row.item.Vin), pushPurchase(row.item.PSerialNo)">
                                                 구매확정
                                             </v-btn>
                                         </v-card-actions>
@@ -186,17 +185,18 @@
 
             async pushPurchase(id) {
                 let body = {
-                    Vin: id
+                    PurSerialNo: id
                 }
-
+                console.log("id");
+                console.log(id);
+                console.log("json");
+                console.log(body);
+                console.log("Purserialno");
+                console.log(body.PurSerialNo);
                 let res = await transmitter("/purchase", "POST", body, "string");
-
-                if (res == "ER_DUP_ENTRY") {
-                    this.snackbar = true;
-                    this.snackbarMsg = "이 상품은 이미 서버에 저장되어 있는 것 같습니다...";
-                } else if (res == "Success") {
-                    this.isSaved = true;
-                } else {
+                if(res === "successPurchase"){
+                    console.log("구매완료");
+                }else{
                     console.log("서버 응답: " + res);
                     throw new Error("서버의 응답 메시지가 기대와 다릅니다.");
                 }
@@ -206,13 +206,6 @@
                     this.carRcmd = response.data
                     console.log(response.data)
                     console.log("car >>", this.carRcmd)
-                }, (error) => {
-                    alert(error)
-                })
-
-                this.$http.get("/product/rcmd/" + number).then(response => {
-                    this.productRcmd = response.data
-                    console.log("product >>", this.productRcmd)
                 }, (error) => {
                     alert(error)
                 })
@@ -253,6 +246,7 @@
                 ],
                 products: [
                     {
+                        PSerialNo: "b001",
                         ManufacturerName: "BMW",
                         ModelName: "320",
                         Transmission: "",
@@ -276,7 +270,7 @@
                         ManufacturerName: "BMW",
                         ModelName: "320",
                         Transmission: "Auto",
-                        SerialNo: "b001"
+                        PSerialNo: "b001"
                     }
                 ],
                 productRcmd: [

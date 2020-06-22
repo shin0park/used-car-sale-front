@@ -131,7 +131,7 @@ export default {
 }
 
 #login {
-  font-family: "Times New Roman";
+  font-family: "Malgun Gothic";
   font-size: 20pt;
   color: purple;
 }

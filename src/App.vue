@@ -46,6 +46,11 @@ export default {
   data: () => ({
     navigationTarget: "hide"
   }),
+
+  created() {
+    this.getUserInfo();
+  },
+
   methods: {
     onTitleClicked() {
       this.$router.push("/");
@@ -57,10 +62,11 @@ export default {
       try {
         let response = await transmitter("/user/info", "GET", {}, "JSON");
         response = response.user;
+
         let payload = {
-          id: response.id,
+          id: response.Id,
           name: response.Name,
-          phoneNumber: response.phoneNumber,
+          phoneNumber: response.PhoneNumber,
 
         };
         this.$store.commit("setUserInfo", payload);

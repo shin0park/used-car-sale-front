@@ -4,8 +4,6 @@ import store from '../store';
 
 import transmitter from "@/plugins/fetchTransmitter.js";
 
-import testPage from "../views/componentTester.vue";
-
 import home from '../views/home.vue';
 import loginMain from '../views/Login_Main.vue';
 import pageNotFound from '../views/pageNotFound.vue';
@@ -49,7 +47,7 @@ const routes = [
     name: "addProduct",
     component: addProduct,
     meta: {
-      //loginRequired: true
+      loginRequired: true
     }
   },
 
@@ -58,7 +56,7 @@ const routes = [
     name: "product",
     component: productmain,
     meta: {
-      //loginRequired: true
+      loginRequired: true
     }
   },
 
@@ -67,7 +65,7 @@ const routes = [
     name: "purchase",
     component: purchase,
     meta: {
-      //loginRequired: true
+      loginRequired: true
     }
   },
 
@@ -76,7 +74,7 @@ const routes = [
     name: "accident",
     component: accident,
     meta: {
-      //loginRequired: true
+      loginRequired: true
     }
   },
 
@@ -85,7 +83,7 @@ const routes = [
     name: "accidentHistory",
     component: accidentHistory,
     meta: {
-      //loginRequired: true
+      loginRequired: true
     }
   },
 
@@ -97,13 +95,6 @@ const routes = [
       loginRequired: true
     }
   },
-
-  {
-    path: "/dev",
-    name: "testing",
-    component: testPage
-  },
-
 
   {
     path: "*",
@@ -122,6 +113,7 @@ router.originalPage = "/";//로그인 페이지로 강제 이동등의 이유로
 console.log(router);
 
 router.beforeEach(async function (to, from, next) {
+  console.log("beforeEach");
   if(to.meta.loginRequired != true){
     next();
     return;
@@ -135,6 +127,7 @@ router.beforeEach(async function (to, from, next) {
   }
 
   //인증이 되어 있지 않으면 인증을 시도한다.
+  console.log("readmin");
   await getUserInfo();
 
   //인증 결과 확인
@@ -153,6 +146,7 @@ async function getUserInfo(){
       try {
         let response = await transmitter("/user/info", "GET", {}, "JSON");
         response = response.user;
+        console.log("getUserInfo");
         console.log(response);
         console.log(response.Id);
         console.log(response.PhoneNumber);
